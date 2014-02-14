@@ -38,7 +38,7 @@ $ make
 ### NeoBundle
 [NeoBundle](https://github.com/Shougo/neobundle.vim)是一个管理VIM 插件的插件。
 
-通过使用NeoBundle，你可以不必自己去下载插件，然后在放到vim的配置插件目录下，只需要简单的在`.vimrc` 文件中`" My Bundles here:`下面添加一行形式如`NeoBundle '<plugin repository location>'`的内容即可。NeoBundle 默认在github上面去找你添加的插件，以vim-airline(https://github.com/bling/vim-airline)插件为例，仅需添加`NeoBundle 'bling/vim-airline'`即可安装。
+通过使用NeoBundle，你可以不必自己去下载插件，然后在放到vim的配置插件目录下，只需要简单的在`.vimrc` 文件中`" My Bundles here:`下面添加一行形式如`NeoBundle '<plugin repository location>'`的内容即可。NeoBundle 默认在github上面去找你添加的插件，以vim-airline( https://github.com/bling/vim-airline )插件为例，仅需添加`NeoBundle 'bling/vim-airline'`即可安装。
 
 虽然NeoBundle 也支持其它地方的插件，但常见的插件github上都有了，特别是在[vim-scripts](https://github.com/vim-scripts) 搬运了很多vim.org 上的插件到上面去之后，实在有需要的话自己手动安装可能更方便。
 
