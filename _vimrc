@@ -31,7 +31,6 @@ set foldmethod=indent "indent/marker/manual
  "
  " Note: You don't set neobundle setting in .gvimrc!
 
- " Custom Bundle Add by wanhu @2014-1-20
  NeoBundle 'bling/vim-airline'
  "NeoBundle 'Lokaltog/powerline-fonts'
  NeoBundle 'terryma/vim-multiple-cursors'
