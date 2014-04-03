@@ -17,7 +17,7 @@ VIM 配置文件
 - 预置常用的VIM插件（见预置插件列表）
 - 支持FFmepg 官方要求的开发代码风格和[编码规范](http://ffmpeg.org/developer.html#Coding-Rules-1)
 
-## 快速安装
+## 快速入门
 
 ```
 $ git clone https://github.com/mengyingchina/.vim.git ~/.vim
@@ -26,10 +26,12 @@ $ make
 ```
 运行`vim`, 按照提示安装预置的插件（bundles/plugins）即可。
 
+提示：如果提示已经存在.vim 目录，使用`rm -rf .vim`删除（注意备份）。
+
 ####部分快捷键
 使用VIM 编辑代码文件时：
 - `F2`: 格式化代码中的空格和TAB缩进方式(4 spaces, no tabs)
-- `F4`: 生成`ctags` 和`cscope`的数据库文件，并自动加载
+- `F4`: 生成`ctags` 和`cscope`的数据库文件，并自动加载（需要先安装`ctags`和`cscope`）
 - `<C-]>`: 跳转到定义
 - `gcc`: 注释当前行
 - 待补充
@@ -56,11 +58,9 @@ $ make
  NeoBundle 'majutsushi/tagbar'
  NeoBundle 'tpope/vim-commentary'
  NeoBundle 'terryma/vim-expand-region'
- NeoBundle 'Shougo/unite.vim'
  NeoBundle 'junegunn/vim-easy-align'
- NeoBundle 'vim-scripts/sudo.vim'
 ```
-插件的详细使用请参考各个插件的帮助文件，其中autotags需安装ctags 和cscope。
+插件的详细使用请参考各个插件的帮助文件，其中autotags需安装`ctags` 和`cscope`。
 
 
 ### FFmpeg 开发相关配置
