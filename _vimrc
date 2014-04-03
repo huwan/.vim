@@ -40,9 +40,9 @@ set foldmethod=indent "indent/marker/manual
  NeoBundle 'majutsushi/tagbar'
  NeoBundle 'tpope/vim-commentary'
  NeoBundle 'terryma/vim-expand-region'
- NeoBundle 'Shougo/unite.vim'
+ "NeoBundle 'Shougo/unite.vim'
  NeoBundle 'junegunn/vim-easy-align'
- NeoBundle 'vim-scripts/sudo.vim'
+ "NeoBundle 'vim-scripts/sudo.vim'
  " ...
 
  filetype plugin indent on     " Required!
