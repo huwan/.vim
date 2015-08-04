@@ -1,38 +1,36 @@
 ```
- __     _____ __  __      _    __  __ ____
- \ \   / /_ _|  \/  |    / \  |  \/  / ___|
-  \ \ / / | || |\/| |   / _ \ | |\/| \___ \
-   \ V /  | || |  | |_ / ___ \| |  | |___) |
-    \_/  |___|_|  |_(_)_/   \_\_|  |_|____/
+__     _____ __  __ ____   ____
+\ \   / /_ _|  \/  |  _ \ / ___|
+ \ \ / / | || |\/| | |_) | |
+ _\ V /  | || |  | |  _ <| |___
+(_)\_/  |___|_|  |_|_| \_\\____|
+
 ```
 
 VIM 配置文件
 ===========
-透过配置给程序员更多关爱
+给程序员更多关爱
 
 ## 支持特性
 - 使用[NeoBundle](http://github.com/Shougo/neobundle.vim)管理VIM插件
 - 预置常用的VIM插件（见预置插件列表）
-- 支持FFmepg 官方要求的开发代码风格和[编码规范](http://ffmpeg.org/developer.html#Coding-Rules-1)
+- 支持Linux官方要求的开发[代码风格](https://www.kernel.org/doc/Documentation/CodingStyle)
 
-## 快速入门
+## 快速安装
 
 ```
-$ git clone https://github.com/mengyingchina/.vim.git ~/.vim
+$ git clone https://github.com/huwan/.vim.git ~/.vim
 $ cd ~/.vim
 $ make
 ```
 运行`vim`, 按照提示安装预置的插件（bundles/plugins）即可。
 
-提示：如果提示已经存在.vim 目录，使用`rm -rf .vim`删除（注意备份）。
-
 ####部分快捷键
 使用VIM 编辑代码文件时：
-- `F2`: 格式化代码中的空格和TAB缩进方式(4 spaces, no tabs)
-- `F4`: 生成`ctags` 和`cscope`的数据库文件，并自动加载（需要先安装`ctags`和`cscope`）
-- `<C-]>`: 跳转到定义
+- `F2`: 去掉文件内容一行末尾有多余的空格
+- `F4`: 生成`ctags` 和`cscope`的数据库文件，并自动加载
 - `gcc`: 注释当前行
-- 待补充
+- `ctrl` + `c`: cscope 快捷键，显示调用当前光标所在函数的函数
 
 ## 高级配置
 ### NeoBundle
@@ -49,33 +47,17 @@ $ make
 
 ```
  NeoBundle 'bling/vim-airline'
- NeoBundle 'terryma/vim-multiple-cursors'
  NeoBundle 'vim-scripts/autotags'
  NeoBundle 'chazy/cscope_maps'
+ NeoBundle 'scrooloose/nerdtree'
  NeoBundle 'tpope/vim-fugitive'
  NeoBundle 'majutsushi/tagbar'
  NeoBundle 'tpope/vim-commentary'
- NeoBundle 'terryma/vim-expand-region'
  NeoBundle 'junegunn/vim-easy-align'
+ NeoBundle 'vim-scripts/sudo.vim'
+ NeoBundle 'vivien/vim-addon-linux-coding-style'
 ```
-插件的详细使用请参考各个插件的帮助文件，其中autotags需安装`ctags` 和`cscope`。
-
-
-### FFmpeg 开发相关配置
-请阅读 FFmpeg Developers Guide 中提到相关的 [Coding Rules](http://ffmpeg.org/developer.html#Coding-Rules-1) :
->- Code formatting conventions
->   - Indent size is 4.
->   - The TAB character is forbidden outside of Makefiles as is any form of trailing whitespace.
->   - You should try to limit your code lines to 80 characters; however, do so if and only if this improves readability.
->- Comments
->- C language features
->- Naming conventions
->- Miscellaneous conventions
->- Editor configuration
-
-已经在` .vimrc`中加入配置以符合FFmpeg的格式要求。
-
-当文件内容一行末尾有多余的空格或者tab与空格缩进混用时会提示 Trailing或Mixed-indent 并高亮，可以按`F2`来格式化代码。
-
-### 自定义配置
-在符合编码规范的前提下，可以自己定制符合自己习惯的配置，欢迎共享你认为特别值得推荐的配置，以让更多人享受到编码的乐趣。
+插件的详细使用请参考各个插件的帮助文件，其中autotags需安装ctags 和cscope。Ubuntu 下可以通过如下命令安装：
+```
+$ sudo apt-get install ctags cscope
+```
