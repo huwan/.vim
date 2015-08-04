@@ -26,7 +26,7 @@ let mapleader=","
  NeoBundle 'vim-scripts/autotags'
  NeoBundle 'chazy/cscope_maps'
  NeoBundle 'scrooloose/nerdtree'
- NeoBundle 'tpope/vim-fugitive' " show git branch in status line
+ NeoBundle 'tpope/vim-fugitive'
  NeoBundle 'majutsushi/tagbar'
  NeoBundle 'tpope/vim-commentary'
  " NeoBundle 'terryma/vim-expand-region'
@@ -54,11 +54,10 @@ let mapleader=","
  let g:airline#extensions#whitespace#checks = [ 'trailing' ]
  " let g:airline#extensions#whitespace#mixed_indent_algo = 1
 
- " Removes trailing spaces and retab
+ " Removes trailing spaces
  function TrimWhiteSpace()
     %s/\s*$//
     ''
-    retab
  :endfunction
 
  map <F2> :call TrimWhiteSpace()<CR>
