@@ -47,14 +47,17 @@ $ make
 
 ```
  NeoBundle 'bling/vim-airline'
+ NeoBundle 'terryma/vim-multiple-cursors'
  NeoBundle 'vim-scripts/autotags'
  NeoBundle 'chazy/cscope_maps'
  NeoBundle 'scrooloose/nerdtree'
  NeoBundle 'tpope/vim-fugitive'
  NeoBundle 'majutsushi/tagbar'
  NeoBundle 'tpope/vim-commentary'
+ NeoBundle 'terryma/vim-expand-region'
+ " NeoBundle 'Shougo/unite.vim'
  NeoBundle 'junegunn/vim-easy-align'
- NeoBundle 'vim-scripts/sudo.vim'
+ " NeoBundle 'vim-scripts/sudo.vim'
  NeoBundle 'vivien/vim-addon-linux-coding-style'
 ```
 插件的详细使用请参考各个插件的帮助文件，其中autotags需安装ctags 和cscope。Ubuntu 下可以通过如下命令安装：

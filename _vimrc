@@ -3,45 +3,51 @@ set ruler
 set hlsearch
 set nocompatible
 set encoding=utf-8
-" set foldmethod=indent "indent/marker/manual
 let mapleader=","
 """""""""""""""Bundle"""""""""""""""""""""""""""""""
+ " Note: Skip initialization for vim-tiny or vim-small.
+ if 0 | endif
+
  if has('vim_starting')
-   set nocompatible               " Be iMproved
+   if &compatible
+     set nocompatible               " Be iMproved
+   endif
+
+   " Required:
    set runtimepath+=~/.vim/bundle/neobundle.vim/
  endif
 
- call neobundle#rc(expand('~/.vim/bundle/'))
+ " Required:
+ call neobundle#begin(expand('~/.vim/bundle/'))
 
  " Let NeoBundle manage NeoBundle
+ " Required:
  NeoBundleFetch 'Shougo/neobundle.vim'
 
  " My Bundles here:
  " Refer to |:NeoBundle-examples|.
- "
  " Note: You don't set neobundle setting in .gvimrc!
-
  NeoBundle 'bling/vim-airline'
- " NeoBundle 'terryma/vim-multiple-cursors'
+ NeoBundle 'terryma/vim-multiple-cursors'
  NeoBundle 'vim-scripts/autotags'
  NeoBundle 'chazy/cscope_maps'
  NeoBundle 'scrooloose/nerdtree'
  NeoBundle 'tpope/vim-fugitive'
  NeoBundle 'majutsushi/tagbar'
  NeoBundle 'tpope/vim-commentary'
- " NeoBundle 'terryma/vim-expand-region'
+ NeoBundle 'terryma/vim-expand-region'
  " NeoBundle 'Shougo/unite.vim'
  NeoBundle 'junegunn/vim-easy-align'
- NeoBundle 'vim-scripts/sudo.vim'
+ " NeoBundle 'vim-scripts/sudo.vim'
  NeoBundle 'vivien/vim-addon-linux-coding-style'
 
- filetype plugin indent on     " Required!
- " Brief help
- " :NeoBundleList          - list configured bundles
- " :NeoBundleInstall(!)    - install(update) bundles
- " :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+ call neobundle#end()
 
- " Installation check.
+ " Required:
+ filetype plugin indent on
+
+ " If there are uninstalled bundles found on startup,
+ " this will conveniently prompt you to install them.
  NeoBundleCheck
 
  " Airline
@@ -79,6 +85,7 @@ let mapleader=","
  " let g:tagbar_left = 1 " on the left side
  let g:tagbar_right = 1  " on the right side
 
+ " Cscope
  " Maps ctrl-c to find functions calling the function in cscope
  nnoremap <C-c> :cs find c <C-R>=expand("<cword>")<CR><CR>
 
