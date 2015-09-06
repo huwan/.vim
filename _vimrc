@@ -3,6 +3,7 @@ set ruler
 set hlsearch
 set nocompatible
 set encoding=utf-8
+set ignorecase smartcase
 let mapleader=","
 """""""""""""""Bundle"""""""""""""""""""""""""""""""
  " Note: Skip initialization for vim-tiny or vim-small.
