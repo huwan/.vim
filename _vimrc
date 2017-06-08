@@ -34,7 +34,7 @@ let mapleader=","
  NeoBundle 'chazy/cscope_maps'
  NeoBundle 'scrooloose/nerdtree'
  NeoBundle 'tpope/vim-fugitive'
- NeoBundle 'majutsushi/tagbar'
+ " NeoBundle 'majutsushi/tagbar' "FIXME: mess code
  NeoBundle 'tpope/vim-commentary'
  NeoBundle 'terryma/vim-expand-region'
  " NeoBundle 'Shougo/unite.vim'
@@ -61,12 +61,26 @@ let mapleader=","
  let g:airline#extensions#whitespace#checks = [ 'trailing' ]
  " let g:airline#extensions#whitespace#mixed_indent_algo = 1
 
+ " set expandtab
+ set shiftwidth=4
+ set softtabstop=4
+ set cindent
+ set cinoptions=(0
+ " Allow tabs in Makefiles.
+ autocmd FileType make,automake set noexpandtab shiftwidth=8 softtabstop=8
+ " Trailing whitespace and tabs are forbidden, so highlight them.
+ " highlight ForbiddenWhitespace ctermbg=red guibg=red
+ " match ForbiddenWhitespace /\s\+$\|\t/
+ " Do not highlight spaces at the end of line while typing on that line.
+ " autocmd InsertEnter * match ForbiddenWhitespace /\t\|\s\+\%#\@<!$/
+
  " Removes trailing spaces
  function TrimWhiteSpace()
     %s/\s*$//
-    ''
+    ''  
+ " retab
  :endfunction
-
+ 
  map <F2> :call TrimWhiteSpace()<CR>
  map! <F2> :call TrimWhiteSpace()<CR>
 
