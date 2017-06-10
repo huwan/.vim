@@ -34,7 +34,7 @@ let mapleader=","
  NeoBundle 'chazy/cscope_maps'
  NeoBundle 'scrooloose/nerdtree'
  NeoBundle 'tpope/vim-fugitive'
- " NeoBundle 'majutsushi/tagbar' "FIXME: mess code
+ " NeoBundle 'majutsushi/tagbar' "FIXME: ^[[>0;136;0c
  NeoBundle 'tpope/vim-commentary'
  NeoBundle 'terryma/vim-expand-region'
  " NeoBundle 'Shougo/unite.vim'
