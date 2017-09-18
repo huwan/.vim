@@ -40,7 +40,7 @@ let mapleader=","
  " NeoBundle 'Shougo/unite.vim'
  NeoBundle 'junegunn/vim-easy-align'
  " NeoBundle 'vim-scripts/sudo.vim'
- NeoBundle 'vivien/vim-addon-linux-coding-style'
+ " NeoBundle 'vivien/vim-addon-linux-coding-style'
 
  call neobundle#end()
 
