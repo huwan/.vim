@@ -22,11 +22,11 @@ check:
 update: check
 ifeq ($(NEO_REMOTE_URL),$(REPO_NEO))
 	@echo "Updating NeoBundle"
-	@echo $(DIR_VIMFILES)	
+	@echo $(DIR_VIMFILES)
 	$(CD) $(DIR_NEO) ; git fetch origin -q; git rebase origin -q
 	$(CD) $(DIR_VIMFILES)
 else
-	@echo "Checking out latest NeoBundle"	
+	@echo "Checking out latest NeoBundle"
 	$(CD) $(DIR_VIMFILES) ; git clone $(REPO_NEO) $(DIR_NEO);
 endif
 
