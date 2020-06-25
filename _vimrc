@@ -1,12 +1,16 @@
-set nu
 set ruler
 set hlsearch
-set nocompatible
-set encoding=utf-8
+set incsearch
 set ignorecase smartcase
+set number
+
+" Enable cursor line position tracking:
+set cursorline
+highlight clear CursorLine
+
 let mapleader=","
-filetype plugin indent on
-syntax on
+noremap \ ,
+
 """""""""""""""Bundle"""""""""""""""""""""""""""""""
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
@@ -36,13 +40,15 @@ NeoBundle 'vim-scripts/autotags'
 NeoBundle 'chazy/cscope_maps'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'majutsushi/tagbar' "FIXME: ^[[>0;136;0c
+" NeoBundle 'majutsushi/tagbar' "FIXME: ^[[>0;136;0c
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'terryma/vim-expand-region'
-" NeoBundle 'Shougo/unite.vim'
 NeoBundle 'junegunn/vim-easy-align'
-" NeoBundle 'vim-scripts/sudo.vim'
-" NeoBundle 'vivien/vim-addon-linux-coding-style'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'pseewald/vim-anyfold'
+NeoBundle 'vim-scripts/a.vim'
+NeoBundle 'ntpeters/vim-better-whitespace'
+
 
 call neobundle#end()
 
@@ -70,21 +76,7 @@ set cindent
 set cinoptions=(0
 " Allow tabs in Makefiles.
 autocmd FileType make,automake set noexpandtab shiftwidth=8 softtabstop=8
-" Trailing whitespace and tabs are forbidden, so highlight them.
-" highlight ForbiddenWhitespace ctermbg=red guibg=red
-" match ForbiddenWhitespace /\s\+$\|\t/
-" Do not highlight spaces at the end of line while typing on that line.
-" autocmd InsertEnter * match ForbiddenWhitespace /\t\|\s\+\%#\@<!$/
-
-" Removes trailing spaces
-function TrimWhiteSpace()
-%s/\s*$//
-''
-" retab
-:endfunction
-
-map <F2> :call TrimWhiteSpace()<CR>
-map! <F2> :call TrimWhiteSpace()<CR>
+autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 
 " Nerdtree
 nmap <Leader>fl :NERDTreeToggle<CR>
@@ -123,3 +115,41 @@ set directory=$HOME/.vim/swapfiles//
 " vim-commentary
 autocmd FileType cfg setlocal commentstring=#\ %s
 autocmd FileType c,cpp setlocal commentstring=//\ %s
+
+" Mapping to toggle line numbers
+nnoremap <silent> <leader>n :set nu!<CR>
+nnoremap <silent> <leader>r :set relativenumber!<CR>
+" nnoremap <silent> <leader>r :set relativenumber! <bar> set nu!<CR>
+
+" open a file in readonly mode if it already has a swapfile
+autocmd SwapExists * let v:swapchoice = "o"
+
+" Autotags
+let g:autotags_ctags_opts = "--c++-kinds=+p --fields=+iaS --extra=+q --extra=+f"
+
+" VIM AnyFold
+autocmd Filetype * AnyFoldActivate
+set foldlevel=99 " Open all folds
+
+" Paste mode
+" https://stackoverflow.com/a/38258720
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
+" Disable continuation of comments to the next line
+autocmd FileType * set formatoptions-=cro
+
+" Vim Better Whitespace
+" let g:better_whitespace_enabled=1
+let g:strip_whitelines_at_eof=1
+let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help']
+map <F2> :StripWhitespace<CR>
+map! <F2> :StripWhitespace<CR>
