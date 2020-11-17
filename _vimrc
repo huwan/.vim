@@ -3,6 +3,8 @@ set hlsearch
 set incsearch
 set ignorecase smartcase
 set number
+set nowrap           " do not automatically wrap on load
+set formatoptions-=t " do not automatically wrap text when typing
 
 " Enable cursor line position tracking:
 set cursorline
@@ -48,7 +50,8 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'pseewald/vim-anyfold'
 NeoBundle 'vim-scripts/a.vim'
 NeoBundle 'ntpeters/vim-better-whitespace'
-
+NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'derekwyatt/vim-fswitch'
 
 call neobundle#end()
 
